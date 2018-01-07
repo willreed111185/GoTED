@@ -23,6 +23,10 @@ const customStyles2 = {
   backgroundColor:"transparent"
 };
 
+const redText = {
+  color : "red",
+  backgroundColor:"transparent"
+};
 
 class Books extends Component {
   state = {
@@ -68,7 +72,7 @@ class Books extends Component {
     return(this.state.talks.map((article,index)=> (
       <ListItem key={article.title}>
           <strong>
-            {article.title} by {article.author}
+            {article.title} by <span style={redText}>{article.author}</span>
           </strong>
           <p>{article.synopsis}</p>
         <button className={index} onClick={()=>this.openModal(index)}>Watch Talk</button>

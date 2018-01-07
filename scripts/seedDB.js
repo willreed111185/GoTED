@@ -117,6 +117,13 @@ const talkSeed = [
     mediaID: "4Vu9IrQq",
     synopsis:
       "Since the widespread use of antibiotics began in the 1940s, we've tried to develop new drugs faster than bacteria can evolve -- but this strategy isn't working. Drug-resistant bacteria known as superbugs killed nearly 700,000 people last year, and by 2050 that number could be 10 million -- more than cancer kills each year. Can physics help? In a talk from the frontiers of science, radiation scientist David Brenner shares his work studying a potentially life-saving weapon: a wavelength of ultraviolet light known as far-UVC, which can kill superbugs safely, without penetrating our skin. Followed by a Q&A with TED Curator Chris Anderson."
+    },
+    {
+    title: "Success stories from Kenya's first makerspace",
+    author: "Kamau Gachigi",
+    mediaID: "k1xpQySN",
+    synopsis:
+      "Africa needs engineers, but its engineering students often end up working at auditing firms and banks. Why? Kamau Gachigi suspects it's because they don't have the spaces and materials needed to test their ideas and start businesses. To solve this problem, Gachigi started Gearbox, a makerspace and hardware accelerator that provides a rapid prototyping environment for both professionals and people with no formal engineering background. In this forward-thinking talk, he shares some of the extraordinary projects and innovations coming out of his Kenyan fab lab."
     }
 ];
 
