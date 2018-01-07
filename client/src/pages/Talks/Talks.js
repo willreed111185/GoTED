@@ -5,15 +5,18 @@ import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import { TextArea } from "../../components/Form";
 import Modal from 'react-modal';
+import Iframe from 'react-iframe'
 
 const customStyles = {
   content : {
-    top                   : '50%',
-    left                  : '50%',
+    top                   : '5%',
+    bottom                : '5%',
+    left                  : '15%',
     right                 : 'auto',
     bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
+    width                 : '70%',
+    height                : '100%',
+    backgroundColor       : 'black',
   }
 };
 
@@ -25,7 +28,6 @@ const customStyles2 = {
 class Books extends Component {
   state = {
     talks: [],
-    savedArticles: [],
     articleTitle:"sample",
     articleContent:"sample",
     articleAuthor:"sample",
@@ -36,7 +38,6 @@ class Books extends Component {
 
   componentDidMount() {
     this.loadBooks();
-    this.loadArticles();
   }
 
   openModal(index) {
@@ -45,7 +46,7 @@ class Books extends Component {
       articleTitle:this.state.talks[index].title,
       articleContent:this.state.talks[index].synopsis,
       articleAuthor:this.state.talks[index].author,
-      articleMediaID:this.state.talks[index].mediaID,
+      articleMediaID:"https://content.jwplatform.com/players/"+this.state.talks[index].mediaID+"-UbMgy82L.html",
       articleID:Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
     });
     console.log(this.state.articleID)
@@ -58,16 +59,7 @@ class Books extends Component {
     API.getTalks()
       .then(res =>
         this.setState({talks: res.data})
-        //console.log(res.data)
       )
-      .catch(err => console.log(err));
-  };
-
-  loadArticles = () => {
-    API.getArticles()
-      .then(results =>
-        this.setState({savedArticles: results.data.results})
-        )
       .catch(err => console.log(err));
   };
 
@@ -93,7 +85,7 @@ class Books extends Component {
             <Jumbotron>
               <h1 style={customStyles2}>TED Talks to View</h1>
             </Jumbotron>
-            {this.state.savedArticles.length ? (
+            {this.state.talks.length ? (
               <List>
                 {this.iterateArticles()}
               </List>
@@ -103,8 +95,6 @@ class Books extends Component {
           </Col>
         </Row>
         <div>
-
-
           <Modal
             isOpen={this.state.modalIsOpen}
             onRequestClose={this.closeModal}
@@ -112,18 +102,21 @@ class Books extends Component {
             contentLabel="Reading Content"
             ariaHideApp={false}
           >
-          <h2>{this.state.articleTitle}</h2>
-          <h3>{this.state.articleAuthor}</h3>
+          <Iframe url={this.state.articleMediaID}
+            width="100%"
+            height="75%"
+            position="relative"
+            align="center"
+            allowFullScreen/>
+          <h2 style={customStyles2}>{this.state.articleTitle}</h2>
+          <h3 style={customStyles2}>{this.state.articleAuthor}</h3>
           <div>
             <p>{this.state.articleContent}</p>
-            <p>{this.state.articleMediaID}</p>
           </div>
-          <form>
+          <div>
             <button onClick={()=>this.closeModal()}>Close</button>
-          </form>
+          </div>
           </Modal>
-
-          
         </div>
       </Container>
     );
