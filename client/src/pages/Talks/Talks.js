@@ -5,28 +5,8 @@ import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import Modal from 'react-modal';
 import Iframe from 'react-iframe'
+import { modalStyle, whiteFont, redFont } from "../../styles"
 
-const customStyles = {
-  content : {
-    top                   : '5%',
-    bottom                : '-5%',
-    left                  : '15%',
-    right                 : 'auto',
-    width                 : '70%',
-    height                : '90%',
-    backgroundColor       : 'black',
-  }
-};
-
-const customStyles2 = {
-  color : "white",
-  backgroundColor:"transparent"
-};
-
-const redText = {
-  color : "red",
-  backgroundColor:"transparent"
-};
 
 class Books extends Component {
   state = {
@@ -72,7 +52,7 @@ class Books extends Component {
     return(this.state.talks.map((article,index)=> (
       <ListItem key={article.title}>
           <strong>
-            {article.title} by <span style={redText}>{article.author}</span>
+            {article.title} by <span style={redFont}>{article.author}</span>
           </strong>
           <p>{article.synopsis}</p>
         <button className={index} onClick={()=>this.openModal(index)}>Watch Talk</button>
@@ -87,14 +67,14 @@ class Books extends Component {
         <Row>
           <Col size="md-12">
             <Jumbotron>
-              <h1 style={customStyles2}>TED Talks to View</h1>
+              <h1 style={whiteFont}>TED Talks to View</h1>
             </Jumbotron>
             {this.state.talks.length ? (
               <List backgroundColor = "transparent">
                 {this.iterateTalks()}
               </List>
             ) : (
-              <h3 style={customStyles2}>No Results to Display</h3>
+              <h3 style={whiteFont}>No Results to Display</h3>
             )}
           </Col>
         </Row>
@@ -102,7 +82,7 @@ class Books extends Component {
           <Modal
             isOpen={this.state.modalIsOpen}
             onRequestClose={this.closeModal}
-            style={customStyles}
+            style={modalStyle}
             contentLabel="Reading Content"
             ariaHideApp={false}
           >
@@ -114,8 +94,8 @@ class Books extends Component {
             align="center"
             className = "embed-responsive embed-responsive-16by9"
             allowFullScreen/>
-          <h2 style={customStyles2}>{this.state.articleTitle}</h2>
-          <h3 style={customStyles2}>{this.state.articleAuthor}</h3>
+          <h2 style={whiteFont}>{this.state.articleTitle}</h2>
+          <h3 style={whiteFont}>{this.state.articleAuthor}</h3>
           <div>
             <p>{this.state.articleContent}</p>
           </div>

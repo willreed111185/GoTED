@@ -1,10 +1,6 @@
 import React from "react";
+import { customListItemStyle } from "../../styles"
 
-const customListItemStyle = {
-    backgroundColor     : 'transparent',
-    border				: '0px',
-    color				: 'white',
-};
 
 export const ListItem = props =>
   <li className="list-group-item" style={customListItemStyle}>

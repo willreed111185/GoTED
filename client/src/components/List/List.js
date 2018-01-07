@@ -1,11 +1,7 @@
 import React from "react";
 import "./List.css";
+import { customListStyle } from "../../styles"
 
-const customListStyle = {
-    backgroundColor     : 'transparent',
-    border				: '0px',
-    color				: 'white',
-};
 
 export const List = ({ children }) => {
   return (
