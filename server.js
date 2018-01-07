@@ -14,7 +14,7 @@ app.use(routes);
 mongoose.Promise = global.Promise;
 
 mongoose.connect(
-  process.env.mongoDB_URL ,
+  process.env.mongoDB_URL || "mongodb://goTED:willreed@ds237947.mlab.com:37947/goted",
   {
     useMongoClient: true
   }

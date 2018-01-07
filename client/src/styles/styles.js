@@ -19,14 +19,14 @@ export const redFont = {
   color : "red",
 };
 
-export const customListItemStyle = {
+export const listItemStyle = {
     backgroundColor     : 'transparent',
     border        : '0px',
     color       : 'white',
 };
 
 
-export const customListStyle = {
+export const listStyle = {
     backgroundColor     : 'transparent',
     border        : '0px',
     color       : 'white',

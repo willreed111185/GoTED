@@ -1,8 +1,8 @@
 import React from "react";
-import { customListItemStyle } from "../../styles"
+import { listItemStyle } from "../../styles"
 
 
 export const ListItem = props =>
-  <li className="list-group-item" style={customListItemStyle}>
+  <li className="list-group-item" style={listItemStyle}>
     {props.children}
   </li>;
