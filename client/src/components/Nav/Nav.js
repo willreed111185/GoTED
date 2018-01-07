@@ -4,12 +4,7 @@ const Nav = () =>
   <nav className="navbar navbar-inverse navbar-top" style={{backgroundColor: 'transparent'}}>
     <div className="container-fluid">
       <div className="navbar-header">
-        <button type="button" className="collapsed navbar-toggle">
-          <span className="sr-only">Toggle navigation</span>
-          <span className="icon-bar" /> <span className="icon-bar" />
-          <span className="icon-bar" />
-        </button>
-        <a href="/" className="navbar-brand">
+        <a href="/" className="navbar-brand" style={{color:'yellow'}}>
           GoTED
         </a>
       </div>

@@ -3,25 +3,24 @@ import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
-import { TextArea } from "../../components/Form";
 import Modal from 'react-modal';
 import Iframe from 'react-iframe'
 
 const customStyles = {
   content : {
     top                   : '5%',
-    bottom                : '5%',
+    bottom                : '-5%',
     left                  : '15%',
     right                 : 'auto',
-    bottom                : 'auto',
     width                 : '70%',
-    height                : '100%',
+    height                : '90%',
     backgroundColor       : 'black',
   }
 };
 
 const customStyles2 = {
-  color : "white"
+  color : "white",
+  backgroundColor:"transparent"
 };
 
 
@@ -51,6 +50,7 @@ class Books extends Component {
     });
     console.log(this.state.articleID)
   }
+
   closeModal() {
     this.setState({modalIsOpen: false});
   }
@@ -64,7 +64,7 @@ class Books extends Component {
   };
 
 
-  iterateArticles(){
+  iterateTalks(){
     return(this.state.talks.map((article,index)=> (
       <ListItem key={article.title}>
           <strong>
@@ -86,11 +86,11 @@ class Books extends Component {
               <h1 style={customStyles2}>TED Talks to View</h1>
             </Jumbotron>
             {this.state.talks.length ? (
-              <List>
-                {this.iterateArticles()}
+              <List backgroundColor = "transparent">
+                {this.iterateTalks()}
               </List>
             ) : (
-              <h3>No Results to Display</h3>
+              <h3 style={customStyles2}>No Results to Display</h3>
             )}
           </Col>
         </Row>
@@ -104,9 +104,11 @@ class Books extends Component {
           >
           <Iframe url={this.state.articleMediaID}
             width="100%"
-            height="75%"
+            height="600px"
+            display ="block"
             position="relative"
             align="center"
+            className = "embed-responsive embed-responsive-16by9"
             allowFullScreen/>
           <h2 style={customStyles2}>{this.state.articleTitle}</h2>
           <h3 style={customStyles2}>{this.state.articleAuthor}</h3>

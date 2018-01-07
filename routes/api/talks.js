@@ -1,17 +1,17 @@
 const router = require("express").Router();
 const talksController = require("../../controllers/talksController");
 
-// Matches with "/api/books"
+// Matches with "/api/talks"
 router.route("/")
   .get(talksController.findAll)
-  .post(talksController.create);
+  //.post(talksController.create);
 
-// Matches with "/api/books/:id"
-router
-  .route("/:id")
-  .get(talksController.findById)
-  .put(talksController.update)
-  .delete(talksController.remove);
+// Matches with "/api/talks/:id"
+// router
+//   .route("/:id")
+//   .get(talksController.findById)
+  //.put(talksController.update)
+  //.delete(talksController.remove);
 
 
 

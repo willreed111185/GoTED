@@ -1,4 +1,6 @@
 const db = require("../models");
+const urlFirst = "https://content.jwplatform.com/players/";
+const urlLast ="-UbMgy82L.html";
 
 // Defining methods for the booksController
 module.exports = {
@@ -8,30 +10,5 @@ module.exports = {
       .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-  },
-  findById: function(req, res) {
-    db.Talk
-      .findById(req.params.id)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(423).json(err));
-  },
-  create: function(req, res) {
-    db.Talk
-      .create(req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(424).json(err));
-  },
-  update: function(req, res) {
-    db.Talk
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(425).json(err));
-  },
-  remove: function(req, res) {
-    db.Talk
-      .finTalkdById({ _id: req.params.id })
-      .then(dbModel => dbModel.remove())
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(426).json(err));
-  }
+    }
 };
