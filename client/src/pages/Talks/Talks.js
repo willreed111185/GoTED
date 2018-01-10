@@ -5,7 +5,7 @@ import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import Modal from 'react-modal';
 import Iframe from 'react-iframe'
-import { modalStyle, whiteFont, redFont } from "../../styles"
+import { modalStyle, whiteFont, redFont, headLine, iFrameDivStyle } from "../../styles"
 
 
 class Books extends Component {
@@ -52,7 +52,7 @@ class Books extends Component {
     return(this.state.talks.map((article,index)=> (
       <ListItem key={article.title}>
           <strong>
-            {article.title} by <span style={redFont}>{article.author}</span>
+            <span style={redFont}>{article.author}</span> : {article.title}
           </strong>
           <p>{article.synopsis}</p>
         <button className={index} onClick={()=>this.openModal(index)}>Watch Talk</button>
@@ -66,7 +66,7 @@ class Books extends Component {
       <Container fluid>
         <Row>
           <Col size="md-12">
-            <Jumbotron>
+            <Jumbotron style={headLine}>
               <h1 style={whiteFont}>TED Talks to View</h1>
             </Jumbotron>
             {this.state.talks.length ? (
@@ -86,14 +86,17 @@ class Books extends Component {
             contentLabel="Reading Content"
             ariaHideApp={false}
           >
-          <Iframe url={this.state.articleMediaID}
-            width="100%"
-            height="600px"
-            display ="block"
-            position="relative"
-            align="center"
-            className = "embed-responsive embed-responsive-16by9"
-            allowFullScreen/>
+          <div style={iFrameDivStyle}>
+
+            <Iframe url={this.state.articleMediaID}
+              width="100%"
+              height="100%"
+              position="absolute"
+              align="center"
+              className = "embed-responsive embed-responsive-16by9"
+              allowFullScreen/>
+
+          </div>
           <h2 style={whiteFont}>{this.state.articleTitle}</h2>
           <h3 style={whiteFont}>{this.state.articleAuthor}</h3>
           <div>

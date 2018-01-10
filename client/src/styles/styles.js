@@ -10,6 +10,13 @@ export const modalStyle = {
   }
 };
 
+export const iFrameDivStyle = {
+    position:'relative',
+    paddingBottom:'56.25%',
+    marginBottom:"5%",
+    overflow:'hidden'
+}
+
 export const whiteFont = {
   color : "white",
   backgroundColor:"transparent"
@@ -30,4 +37,8 @@ export const listStyle = {
     backgroundColor     : 'transparent',
     border        : '0px',
     color       : 'white',
+};
+
+export const headLine ={
+  padding: "0px"
 };
