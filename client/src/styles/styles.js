@@ -7,6 +7,7 @@ export const modalStyle = {
     width                 : '70%',
     height                : '90%',
     backgroundColor       : 'black',
+    overflowX             : 'hidden'
   }
 };
 

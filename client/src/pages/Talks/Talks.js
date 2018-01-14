@@ -20,7 +20,7 @@ class Books extends Component {
   };
 
   componentDidMount() {
-    this.loadBooks();
+    this.loadTalks();
   }
 
   openModal(index) {
@@ -39,7 +39,7 @@ class Books extends Component {
     this.setState({modalIsOpen: false});
   }
 
-  loadBooks = () => {
+  loadTalks = () => {
     API.getTalks()
       .then(res =>
         this.setState({talks: res.data})
@@ -87,7 +87,6 @@ class Books extends Component {
             ariaHideApp={false}
           >
           <div style={iFrameDivStyle}>
-
             <Iframe url={this.state.articleMediaID}
               width="100%"
               height="100%"
@@ -95,7 +94,6 @@ class Books extends Component {
               align="center"
               className = "embed-responsive embed-responsive-16by9"
               allowFullScreen/>
-
           </div>
           <h2 style={whiteFont}>{this.state.articleTitle}</h2>
           <h3 style={whiteFont}>{this.state.articleAuthor}</h3>

@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route,Switch } from "react-router-dom";
 import Talks from "./pages/Talks";
+import InputTalks from "./pages/Admin";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 import Auth from "./pages/Auth";
@@ -13,6 +14,7 @@ const App = () =>
       <Switch>
         <Route exact path="/" component={Auth} />
         <Route exact path="/Talks" component={Talks} />
+        <Route exact path="/Admin" component={InputTalks} />
         <Route exact path="/AuthGoogle" component={AuthGoogle} />
         <Route component={NoMatch} />
     </Switch>
