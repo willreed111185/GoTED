@@ -7,9 +7,6 @@ const customStyles2 = {
   color : "white",
   textOrientation: "upright"
 };
-const vert ={
-    transform: [{ rotate: '90deg'}]
-}
 
 const NoMatch = () =>
   <Container fluid>

@@ -5,7 +5,7 @@ import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import Modal from 'react-modal';
 import Iframe from 'react-iframe'
-import { modalStyle, whiteFont, redFont, headLine, iFrameDivStyle } from "../../styles"
+import { modalStyle, whiteFont, redFont, headLine, iFrameDivStyle, talksDivStyle } from "../../styles"
 
 
 class Talks extends Component {
@@ -64,20 +64,22 @@ class Talks extends Component {
   render() {
     return (
       <Container fluid>
-        <Row>
-          <Col size="md-12">
-            <Jumbotron style={headLine}>
-              <h1 style={whiteFont}>TED Talks to View</h1>
-            </Jumbotron>
-            {this.state.talks.length ? (
-              <List backgroundColor = "transparent">
-                {this.iterateTalks()}
-              </List>
-            ) : (
-              <h3 style={whiteFont}>No Results to Display</h3>
-            )}
-          </Col>
-        </Row>
+        <div style = {talksDivStyle}>
+          <Row>
+            <Col size="md-12">
+              <Jumbotron style={headLine}>
+                <h1 style={whiteFont}>TED Talks to View</h1>
+              </Jumbotron>
+              {this.state.talks.length ? (
+                <List backgroundColor = "transparent">
+                  {this.iterateTalks()}
+                </List>
+              ) : (
+                <h3 style={whiteFont}>No Results to Display</h3>
+              )}
+            </Col>
+          </Row>
+        </div>
         <div>
           <Modal
             isOpen={this.state.modalIsOpen}

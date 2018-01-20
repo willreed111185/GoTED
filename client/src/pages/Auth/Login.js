@@ -5,7 +5,6 @@ import { Input, FormBtn } from "../../components/Form";
 import "react-toggle/style.css";
 import { redFont,whiteFont,loginDivStyls } from "../../styles";
 import { Redirect } from 'react-router';
-import { Link } from "react-router-dom";
 
 
 class TalkIntake extends Component {
@@ -44,8 +43,6 @@ class TalkIntake extends Component {
   evaluateAuth(value){
     localStorage.setItem('authTest',value);
     if (value !== true){
-      console.log("NO GO")
-      //redirect to the Admin page
       this.setState({
         Message:"invalid credential",
         userName:"",
@@ -73,6 +70,7 @@ class TalkIntake extends Component {
                 onChange={this.handleInputChange}
                 name="userName"
                 placeholder="Username"
+                style = {{backgroundColor:'transparent !important'}}
               />
               <Input
                 value={this.state.Password}

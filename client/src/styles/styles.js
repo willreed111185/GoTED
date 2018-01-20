@@ -23,6 +23,11 @@ export const loginDivStyls = {
 
 }
 
+export const talksDivStyle = {
+    padding:'3%',
+
+}
+
 export const whiteFont = {
   color : "white",
   backgroundColor:"transparent"

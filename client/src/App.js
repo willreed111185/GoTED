@@ -14,13 +14,9 @@ const App = () =>
       <Nav />
       <Switch>
         <Route exact path="/" component={Home} />
-
         <Route exact path="/Talks" component={Talks} />
-
         <Route exact path="/login" component={Login} />
-
         <Route exact path="/Admin" component={InputTalks} />
-        
         <Route component={NoMatch} />
     </Switch>
     </div>
