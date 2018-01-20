@@ -8,7 +8,7 @@ import Iframe from 'react-iframe'
 import { modalStyle, whiteFont, redFont, headLine, iFrameDivStyle } from "../../styles"
 
 
-class Books extends Component {
+class Talks extends Component {
   state = {
     talks: [],
     articleTitle:"sample",
@@ -110,4 +110,4 @@ class Books extends Component {
   }
 }
 
-export default Books;
+export default Talks;

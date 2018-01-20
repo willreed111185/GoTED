@@ -14,5 +14,14 @@ export default {
   deleteTalk: function(talkData) {
   	console.log(talkData);
     return axios.post("/api/talks/delete", talkData);
+  },
+  checkAuth: function(authData){
+    console.log(authData);
+    return axios.get("/api/talks/auth",{
+      params: {
+        userName:authData.userName,
+        password:authData.Password
+      }
+    });
   }
 };

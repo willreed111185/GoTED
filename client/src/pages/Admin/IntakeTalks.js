@@ -11,7 +11,7 @@ import "react-toggle/style.css";
 
 
 
-class Books extends Component {
+class TalkIntake extends Component {
   state = {
     talks: [],
     articleTitle:"sample",
@@ -20,11 +20,16 @@ class Books extends Component {
     articleID:"",
     articleDBKey:"",
     talkNew:false,
-    modalIsOpen: false
+    modalIsOpen: false,
+    redirectAuth:true
   };
 
   componentDidMount() {
     this.loadTalks();
+    this.setState({
+      redirectAuth: localStorage.getItem("authTest")
+    });
+    console.log(this.state)
   }
 
   openModal(index) {
@@ -133,83 +138,87 @@ class Books extends Component {
 
 
   render() {
-    return (
-      <Container fluid>
-        <Row>
-          <Col size="md-12">
-            <Jumbotron style={headLine}>
-              <h1 style={whiteFont}>TED Talks to View</h1>
-            </Jumbotron>
-            <button onClick={()=>this.openModal("00")}>Load A New Talk</button>
-            {this.state.talks.length ? (
-              <List backgroundColor = "transparent">
-                {this.iterateTalks()}
-              </List>
-            ) : (
-              <h3 style={whiteFont}>No Results to Display</h3>
-            )}
-          </Col>
-        </Row>
-        <div>
-          <Modal
-            isOpen={this.state.modalIsOpen}
-            onRequestClose={this.closeModal}
-            style={modalStyle}
-            contentLabel="Reading Content"
-            ariaHideApp={false}
-          >
-          <form>
-              <Toggle
-                id='cheese-status'
-                defaultChecked={this.state.talkNew}
-                onChange={this.handleInputChange} />
-                <label htmlFor='cheese-status'>Is This a New Article?</label>
-              <Input
-                value={this.state.articleTitle}
-                onChange={this.handleInputChange}
-                name="articleTitle"
-                placeholder="Title (required)"
-              />
-              <Input
-                value={this.state.articleAuthor}
-                onChange={this.handleInputChange}
-                name="articleAuthor"
-                placeholder="Author (required)"
-              />
-              <Input
-                value={this.state.articleTag}
-                onChange={this.handleInputChange}
-                name="articleTag"
-                placeholder="JW Tag (required)"
-              />
-              <Input
-                value={this.state.articleDBKey}
-                onChange = {this.handleInputChange}
-                name="articleDBKey"
-                placeholder="Not In Database"
-              />
-              <TextArea
-                value={this.state.articleContent}
-                onChange={this.handleInputChange}
-                name="articleContent"
-                placeholder="Synopsis (Optional)"
-              />
-
-              <FormBtn
-                disabled={!(this.state.articleAuthor && this.state.articleTitle && this.state.articleTag)}
-                onClick={this.handleFormSubmit}
-              >
-                Submit
-              </FormBtn>
-            </form>
+    if (this.state.redirectAuth==="false"){
+      return(<h1>AccessDenied</h1>)
+    }else{
+      return (
+        <Container fluid>
+          <Row>
+            <Col size="md-12">
+              <Jumbotron style={headLine}>
+                <h1 style={whiteFont}>TED Talks to View</h1>
+              </Jumbotron>
+              <button onClick={()=>this.openModal("00")}>Load A New Talk</button>
+              {this.state.talks.length ? (
+                <List backgroundColor = "transparent">
+                  {this.iterateTalks()}
+                </List>
+              ) : (
+                <h3 style={whiteFont}>No Results to Display</h3>
+              )}
+            </Col>
+          </Row>
           <div>
-            <button onClick={()=>this.closeModal()}>Close</button>
+            <Modal
+              isOpen={this.state.modalIsOpen}
+              onRequestClose={this.closeModal}
+              style={modalStyle}
+              contentLabel="Reading Content"
+              ariaHideApp={false}
+            >
+            <form>
+                <Toggle
+                  id='cheese-status'
+                  defaultChecked={this.state.talkNew}
+                  onChange={this.handleInputChange} />
+                  <label htmlFor='cheese-status'>Is This a New Article?</label>
+                <Input
+                  value={this.state.articleTitle}
+                  onChange={this.handleInputChange}
+                  name="articleTitle"
+                  placeholder="Title (required)"
+                />
+                <Input
+                  value={this.state.articleAuthor}
+                  onChange={this.handleInputChange}
+                  name="articleAuthor"
+                  placeholder="Author (required)"
+                />
+                <Input
+                  value={this.state.articleTag}
+                  onChange={this.handleInputChange}
+                  name="articleTag"
+                  placeholder="JW Tag (required)"
+                />
+                <Input
+                  value={this.state.articleDBKey}
+                  onChange = {this.handleInputChange}
+                  name="articleDBKey"
+                  placeholder="Not In Database"
+                />
+                <TextArea
+                  value={this.state.articleContent}
+                  onChange={this.handleInputChange}
+                  name="articleContent"
+                  placeholder="Synopsis (Optional)"
+                />
+
+                <FormBtn
+                  disabled={!(this.state.articleAuthor && this.state.articleTitle && this.state.articleTag)}
+                  onClick={this.handleFormSubmit}
+                >
+                  Submit
+                </FormBtn>
+              </form>
+            <div>
+              <button onClick={()=>this.closeModal()}>Close</button>
+            </div>
+            </Modal>
           </div>
-          </Modal>
-        </div>
-      </Container>
-    );
+        </Container>
+      );
+    }
   }
 }
 
-export default Books;
+export default TalkIntake;

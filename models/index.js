@@ -1,3 +1,4 @@
 module.exports = {
-  Talk: require("./talk")
+  Talk: require("./talk"),
+  Auth: require("./auth")
 };

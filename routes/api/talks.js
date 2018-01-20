@@ -10,5 +10,7 @@ router.route("/")
 router.route("/delete")
   .post(talksController.remove)
 
+router.route("/auth")
+	.get(talksController.auth)
 
 module.exports = router;

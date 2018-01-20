@@ -34,5 +34,12 @@ module.exports = {
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+  auth: function(req,res){
+    console.log("Auth Route Hit in Controller");
+    db.Auth
+      .findOne(req.query)
+      .then(authModel => {res.json(authModel.valid)})
+      .catch(err => res.json(false));
   }
 };
