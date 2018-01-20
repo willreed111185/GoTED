@@ -18,6 +18,11 @@ export const iFrameDivStyle = {
     overflow:'hidden'
 }
 
+export const loginDivStyls = {
+    padding:'7%',
+
+}
+
 export const whiteFont = {
   color : "white",
   backgroundColor:"transparent"
