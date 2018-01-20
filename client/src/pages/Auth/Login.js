@@ -91,11 +91,6 @@ class TalkIntake extends Component {
             <Row>
             <h2 style={redFont}>{this.state.Message}</h2>
             </Row>
-            <Row>
-              <Link to={"/Talks/"}>
-                <h3 style={redFont}>Or Skip To The Talks</h3>
-              </Link>
-            </Row>
           </div>
         </Col>
         </Container>
