@@ -7,6 +7,7 @@ const Nav = () =>
         <a href="/" className="navbar-brand">GoTED</a>
         <a href="/talks" className="navbar-brand">Talks</a>
         <a href="/login" className="navbar-brand">Admin</a>
+        <a href="https://www.ted.com/" className="navbar-brand">TED</a>
       </div>
     </div>
   </nav>;
