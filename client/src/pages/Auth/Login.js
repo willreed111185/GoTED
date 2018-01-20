@@ -74,6 +74,7 @@ class TalkIntake extends Component {
               value={this.state.Password}
               onChange={this.handleInputChange}
               name="Password"
+              type="password"
               placeholder="Password"
             />
             <FormBtn
