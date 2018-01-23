@@ -6,6 +6,8 @@ const Nav = () =>
       <div className="navbar-inverse" size="sm-12">
         <a href="/" className="navbar-brand">GoTED</a>
         <a href="/talks" className="navbar-brand">Talks</a>
+      </div>
+      <div>
         <a href="/login" className="navbar-brand">Admin</a>
         <a href="https://www.ted.com/" className="navbar-brand">TED</a>
       </div>
