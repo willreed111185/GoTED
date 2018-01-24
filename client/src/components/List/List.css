@@ -1,5 +1,7 @@
 .list-overflow-container {
   max-height: 595px;
+  min-width: 110%;
+  padding-right: 10%;
   overflow-y: scroll;
   overflow-x: hidden;
 }

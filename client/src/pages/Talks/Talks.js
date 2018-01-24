@@ -5,7 +5,7 @@ import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import Modal from 'react-modal';
 import Iframe from 'react-iframe'
-import { modalStyle, whiteFont, redFont, headLine, iFrameDivStyle, talksDivStyle } from "../../styles"
+import { modalStyle, whiteFont, redFont, headLine, iFrameDivStyle, talksDivStyle, hideScroll } from "../../styles"
 
 
 class Talks extends Component {
@@ -71,7 +71,7 @@ class Talks extends Component {
                 <h1 style={whiteFont}>TED Talks to View</h1>
               </Jumbotron>
               {this.state.talks.length ? (
-                <List backgroundColor = "transparent">
+                <List backgroundColor = "transparent" style={hideScroll}>
                   {this.iterateTalks()}
                 </List>
               ) : (

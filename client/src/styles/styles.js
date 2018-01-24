@@ -53,3 +53,7 @@ export const listStyle = {
 export const headLine ={
   padding: "0px"
 };
+
+export const hideScroll ={
+  overflow: "hidden"
+};
