@@ -35,7 +35,7 @@ class Talks extends Component {
     console.log(this.state.articleID)
   }
 
-  closeModal() {
+  closeModal = () => {
     this.setState({modalIsOpen: false});
   }
 
