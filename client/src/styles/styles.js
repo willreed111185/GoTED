@@ -34,7 +34,8 @@ export const whiteFont = {
 };
 
 export const redFont = {
-  color : "red",
+  color : "#ff5c33",
+  fontSize:"20px"
 };
 
 export const listItemStyle = {
@@ -51,9 +52,9 @@ export const listStyle = {
 };
 
 export const headLine ={
-  padding: "0px"
-};
-
-export const hideScroll ={
-  overflow: "hidden"
+  color : "white",
+  textAlign:"center",
+  backgroundColor:"transparent",
+  padding: "30px",
+  paddingTop:"0px"
 };

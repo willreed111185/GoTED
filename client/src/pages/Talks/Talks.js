@@ -5,8 +5,14 @@ import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import Modal from 'react-modal';
 import Iframe from 'react-iframe'
-import { modalStyle, whiteFont, redFont, headLine, iFrameDivStyle, talksDivStyle, hideScroll } from "../../styles"
+import { modalStyle, whiteFont, redFont, headLine, iFrameDivStyle, talksDivStyle } from "../../styles"
 
+  const buttonStyle ={
+    color: 'white',
+    backgroundColor:"transparent",
+    borderColor:"#ff5c33",
+    fontSize:"20px"
+  };
 
 class Talks extends Component {
   state = {
@@ -52,13 +58,15 @@ class Talks extends Component {
     return(this.state.talks.map((article,index)=> (
       <ListItem key={article.title}>
           <strong>
-            <span style={redFont}>{article.author}</span> : {article.title}
+            <button style={buttonStyle} dataid={index} onClick={()=>this.openModal(index)}>{article.author}</button> <span style={redFont}> {article.title}</span>
           </strong>
-          <p>{article.synopsis}</p>
-        <button className={index} onClick={()=>this.openModal(index)}>Watch Talk</button>
+          <p onClick={()=>this.openModal(index)}>{article.synopsis}</p>
+        
       </ListItem>
     )))
   }
+
+
 
 
   render() {
@@ -68,10 +76,10 @@ class Talks extends Component {
           <Row>
             <Col size="md-12">
               <Jumbotron style={headLine}>
-                <h1 style={whiteFont}>TED Talks to View</h1>
+                <h2 style={headLine}>TED Talks to View</h2>
               </Jumbotron>
               {this.state.talks.length ? (
-                <List backgroundColor = "transparent" style={hideScroll}>
+                <List backgroundColor = "transparent">
                   {this.iterateTalks()}
                 </List>
               ) : (
