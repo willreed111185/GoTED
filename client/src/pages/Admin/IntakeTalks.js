@@ -58,7 +58,7 @@ class TalkIntake extends Component {
   }
   }
 
-  closeModal() {
+  closeModal = () => {
     this.setState({modalIsOpen: false});
   }
 

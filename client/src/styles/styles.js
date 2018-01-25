@@ -7,7 +7,8 @@ export const modalStyle = {
     width                 : '70%',
     height                : '90%',
     backgroundColor       : 'black',
-    overflowX             : 'hidden'
+    overflowX             : 'hidden',
+    overlay:{zIndex       : '100'}
   }
 };
 
@@ -25,7 +26,6 @@ export const loginDivStyls = {
 
 export const talksDivStyle = {
     padding:'3%',
-
 }
 
 export const whiteFont = {
