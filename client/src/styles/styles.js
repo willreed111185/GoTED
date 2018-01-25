@@ -58,3 +58,8 @@ export const headLine ={
   padding: "30px",
   paddingTop:"0px"
 };
+
+export const redFontHeadline ={
+  color : "#ff5c33",
+  backgroundColor:"transparent",
+};

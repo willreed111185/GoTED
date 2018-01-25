@@ -5,7 +5,7 @@ import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import Modal from 'react-modal';
 import Iframe from 'react-iframe'
-import { modalStyle, whiteFont, redFont, headLine, iFrameDivStyle, talksDivStyle } from "../../styles"
+import { modalStyle, whiteFont, redFont, headLine, iFrameDivStyle, talksDivStyle, redFontHeadline } from "../../styles"
 
   const buttonStyle ={
     color: 'white',
@@ -76,7 +76,7 @@ class Talks extends Component {
           <Row>
             <Col size="md-12">
               <Jumbotron style={headLine}>
-                <h2 style={headLine}>TED Talks to View</h2>
+                <h2 style={headLine}><span style={redFontHeadline}>GO</span>TED Talks to View</h2>
               </Jumbotron>
               {this.state.talks.length ? (
                 <List backgroundColor = "transparent">
